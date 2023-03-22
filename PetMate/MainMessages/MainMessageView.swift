@@ -109,14 +109,17 @@ struct MainMessageView: View {
             
             VStack {
                 customNavBar
-                messagesView
-                
                 NavigationLink("", isActive: $shouldNavigateToChatLogView) {
                     ChatLogView(vm: chatLogViewModel)
                 }
+                messagesView
+
+                
+                
+
             }
-            .overlay(
-                newMessageButton, alignment: .bottom)
+//            .overlay(
+//                newMessageButton, alignment: .bottom)
             .navigationBarHidden(true)
         }
     }
@@ -187,11 +190,12 @@ struct MainMessageView: View {
                     Button {
                         let uid = FirebaseManager.shared.auth.currentUser?.uid == recentMessage.fromId ? recentMessage.toId : recentMessage.fromId
                         
-                        self.chatUser = .init(id: uid, uid: uid, nickname: recentMessage.nickname, profileImageUrl: recentMessage.profileImageUrl, gender: "" , age : "")
+                        self.chatUser = .init(id: uid, uid: uid, nickname: recentMessage.nickname, profileImageUrl: recentMessage.profileImageUrl, gender: "" , age : "", location: "",pet_age:"", pet_breed: "", pet_name: "",pet_size: "",pet_gender: "", pet_neut: false)
                         
                         self.chatLogViewModel.chatUser = self.chatUser
                         self.chatLogViewModel.fetchMessages()
                         self.shouldNavigateToChatLogView.toggle()
+                        
                     } label: {
                         HStack(spacing: 16) {
                             WebImage(url: URL(string: recentMessage.profileImageUrl))
@@ -234,43 +238,39 @@ struct MainMessageView: View {
     }
     
     @State var shouldShowNewMessageScreen = false
-    
-    private var newMessageButton: some View {
-        Button {
-            shouldShowNewMessageScreen.toggle()
-        } label: {
-            HStack {
-                Spacer()
-                Text("+ New Message")
-                    .font(.system(size: 16, weight: .bold))
-                Spacer()
-            }
-            .foregroundColor(.white)
-            .padding(.vertical)
-                .background(Color.blue)
-                .cornerRadius(32)
-                .padding(.horizontal)
-                .shadow(radius: 15)
-        }
-        .fullScreenCover(isPresented: $shouldShowNewMessageScreen) {
-            LocalListView(didSelectNewUser: { user in
-                print(user.nickname)
-                self.shouldNavigateToChatLogView.toggle()
-                self.chatUser = user
-                self.chatLogViewModel.chatUser = user
-                self.chatLogViewModel.fetchMessages()
-            })
-        }
-    }
+
+//    private var newMessageButton: some View {
+//        Button {
+//            shouldShowNewMessageScreen.toggle()
+//        } label: {
+//            HStack {
+//                Spacer()
+//                Text("+ New Message")
+//                    .font(.system(size: 16, weight: .bold))
+//                Spacer()
+//            }
+//            .foregroundColor(.white)
+//            .padding(.vertical)
+//                .background(Color.blue)
+//                .cornerRadius(32)
+//                .padding(.horizontal)
+//                .shadow(radius: 15)
+//        }
+//        .fullScreenCover(isPresented: $shouldShowNewMessageScreen) {
+//            LocalListView(didSelectNewUser: { user in
+//                self.shouldNavigateToChatLogView.toggle()
+//                self.chatUser = user
+//                self.chatLogViewModel.chatUser = user
+//                self.chatLogViewModel.fetchMessages()
+//            })
+//        }
+//    }
     
     @State var chatUser: ChatUser?
 }
 
 struct MainMessagesView_Previews: PreviewProvider {
     static var previews: some View {
-        MainMessageView()
-            .preferredColorScheme(.dark)
-        
         MainMessageView()
     }
 }

@@ -19,7 +19,6 @@ class ChatLogViewModel: ObservableObject {
     
     init(chatUser: ChatUser?) {
         self.chatUser = chatUser
-        
         fetchMessages()
     }
     
@@ -233,7 +232,7 @@ struct ChatLogView: View {
             Button {
                 vm.handleSend()
             } label: {
-                Text("Send")
+                Image(systemName: "paperplane")
                     .foregroundColor(.white)
             }
             .padding(.horizontal)
@@ -284,7 +283,7 @@ struct MessageView: View {
 private struct DescriptionPlaceholder: View {
     var body: some View {
         HStack {
-            Text("Description")
+            Text("메시지 보내기")
                 .foregroundColor(Color(.gray))
                 .font(.system(size: 17))
                 .padding(.leading, 5)

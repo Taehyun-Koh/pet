@@ -11,7 +11,10 @@ import SwiftUI
 struct PetMateApp: App {
     var body: some Scene {
         WindowGroup {
-            MainMessageView()
+//            MainMessageView()
+            ContentView()
+            
+//            MapView()
         }
     }
 }

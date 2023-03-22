@@ -17,11 +17,12 @@ struct RegisterView: View {
     @State private var gender = ""
     @State private var age = "20"
     @State private var inputdone = ""
+    @State private var location = ""
     
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                
+
                 InputTextFieldView(text: $email,
                                    placeholder: "이메일",
                                    keyboardType: .emailAddress,
@@ -36,13 +37,11 @@ struct RegisterView: View {
                                    placeholder: "닉네임",
                                    keyboardType: .namePhonePad,
                                    systemImage: nil)
-                
-                
                 HStack{
                     Text("성별").bold().padding(.trailing, 15.0)
                     Picker(selection: $gender, label: Text("gender select")){
-                        Text("남성").tag("male")
-                        Text("여성").tag("female")
+                        Text("남성").tag("남성")
+                        Text("여성").tag("여성")
                     }.pickerStyle(SegmentedPickerStyle())
                 }
                 
@@ -50,24 +49,34 @@ struct RegisterView: View {
                     Text("연령대").bold()
                     Spacer()
                     Picker(selection: $age, label:Text(""), content:{
-                        Text("10대").tag("10")
-                        Text("20대").tag("20")
-                        Text("30대").tag("30")
-                        Text("40대").tag("40")
-                        Text("50대").tag("50")
-                        Text("60대").tag("60")
-                        Text("70대").tag("70")
-                        Text("80대").tag("80")
-                        Text("90대").tag("90")
+                        Text("10대").tag("10대")
+                        Text("20대").tag("20대")
+                        Text("30대").tag("30대")
+                        Text("40대").tag("40대")
+                        Text("50대").tag("50대")
+                        Text("60대").tag("60대")
+                        Text("70대").tag("70대")
+                        Text("80대").tag("80대")
+                        Text("90대").tag("90대")
                     }).foregroundColor(.red)
                 }
                 .foregroundColor(Color.black)
-
                 
+
+                HStack{
+                    Text("동네").bold()
+                    Spacer()
+                    if location == ""{
+                        newMessageButton
+                    }
+                    else{
+                        Text(location).foregroundColor(.black)
+                    }
+                }
                 
                 HStack{
                     
-                    if (email != "" &&  password != "" && nickname != "" &&  age != "" &&  gender != "") {
+                    if (email != "" &&  password != "" && nickname != "" &&  age != "" &&  gender != "" && location != "") {
                         Button(action: {
                             inputdone = "true"
                         }, label:{
@@ -91,7 +100,7 @@ struct RegisterView: View {
                 }
                 
                 if inputdone == "true"{
-                    NavigationLink(destination: PetInfoView(email: $email, password: $password, nickname: $nickname, gender:$gender , age:$age,  firstNaviLinkActive:$firstNaviLinkActive), isActive: $firstNaviLinkActive){
+                    NavigationLink(destination: PetInfoView(email: $email, password: $password, nickname: $nickname, gender:$gender , age:$age, location:$location, firstNaviLinkActive:$firstNaviLinkActive), isActive: $firstNaviLinkActive){
                         Text("")
                     }
                 }
@@ -100,6 +109,51 @@ struct RegisterView: View {
         }
         .padding()
     }
+    
+    @State var isShownSheet = false
+    @ObservedObject var vm1 = LocationManager()
+    private var newMessageButton: some View {
+       
+        Button {
+            self.isShownSheet.toggle()
+            
+        } label: {
+            HStack {
+
+                Text("설정하기")
+                    .font(.system(size: 16, weight: .bold))
+                
+            }
+            .foregroundColor(.white)
+            .padding()
+                .background(Color.blue)
+                .cornerRadius(32)
+                .padding(.horizontal,50)
+        }
+        .sheet(isPresented: $isShownSheet) {
+            
+            NavigationView{
+                VStack{
+                    MapViewCoordinator(locationManager: vm1).cornerRadius(10)
+                    HStack{
+                        Text("현재 위치가 \(vm1.currentPlace)인가요?")
+                        Button {
+                            isShownSheet.toggle()
+                            location = vm1.currentPlace
+                        } label: {
+                            Text("확인")
+                        }
+                    }
+
+                    
+                    
+                }
+                .navigationTitle(vm1.currentPlace)
+            }
+        }
+        
+    }
+    
 }
 
 struct PetInfoView: View {
@@ -116,15 +170,14 @@ struct PetInfoView: View {
     @State var isloading = false
     
     
-    var dogs = ["믹스견","말티즈","푸들","시바견"]
-    var cats = ["사바나캣","길고양이","짬타이거"]
-    
     @Binding var email : String
     @Binding var password : String
     @Binding var nickname : String
     @Binding var gender : String
     @Binding var age : String
+    @Binding var location : String
     @Binding var firstNaviLinkActive : Bool
+    
     
     var body: some View {
         
@@ -172,28 +225,33 @@ struct PetInfoView: View {
                     HStack{
                         Text("반려동물").bold().padding(.trailing, 15.0)
                         Picker(selection: $DogorCat, label: Text("")){
-                            Text("강아지").tag("dog")
-                            Text("고양이").tag("cat")
+                            Text("강아지").tag("강아지")
+                            Text("고양이").tag("고양이")
                         }.pickerStyle(SegmentedPickerStyle())
                     }
                     HStack{
                         Text("품종").bold()
                         Spacer()
-                        if DogorCat == "dog"{
+                        if DogorCat == "강아지"{
                             Picker(selection: $petBreed, label:Text(""), content:{
                                 Text("선택").tag("")
-                                Text("시바견").tag("siba")
-                                Text("푸들").tag("poodle")
+                                Text("시바견").tag("시바견")
+                                Text("푸들").tag("푸들")
+                                Text("진돗개").tag("진돗개")
+                                Text("포메라니안").tag("포메라니안")
+                                Text("치와와").tag("치와와")
+                                Text("시추").tag("시추")
+                                Text("골든리트리버").tag("골든리트리버")
                             })
                             
                             .foregroundColor(Color.black)
                             .padding(10)
                         }
-                        else if DogorCat == "cat"{
+                        else if DogorCat == "고양이"{
                             Picker(selection: $petBreed, label:Text(""), content:{
                                 Text("선택").tag("")
-                                Text("짬타이거").tag("zzamking")
-                                Text("길고양이").tag("streetking")
+                                Text("페르시안고양이").tag("페르시안고양이")
+                                Text("메인쿤").tag("메인쿤")
                             })
                             
                             .foregroundColor(Color.black)
@@ -219,17 +277,17 @@ struct PetInfoView: View {
                         Text("펫 나이").bold().padding(.trailing, 15.0)
                         Spacer()
                         Picker(selection: $petAge, label: Text("")){
-                            Text("퍼피(1세 미만)").tag("puppy")
-                            Text("어덜트(1세~7세)").tag("adult")
-                            Text("시니어(7세 이상").tag("senior")
+                            Text("퍼피(1세 미만)").tag("퍼피")
+                            Text("어덜트(1세~7세)").tag("어덜트")
+                            Text("시니어(7세 이상").tag("시니어")
                         }
                     }
                     HStack{
                         Text("크기").bold().padding(.trailing, 15.0)
                         Picker(selection: $petSize, label: Text("")){
-                            Text("소형").tag("small")
-                            Text("중형").tag("mid")
-                            Text("대형").tag("big")
+                            Text("소형").tag("소형")
+                            Text("중형").tag("중형")
+                            Text("대형").tag("대형")
                         }.pickerStyle(SegmentedPickerStyle())
                     }
                     Button {
@@ -308,7 +366,7 @@ struct PetInfoView: View {
     private func storeUserInfo(imageProfileUrl: URL){
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         
-        let userData = ["email": self.email , "uid": uid, "nickname":self.nickname, "gender": self.gender,"age":self.age, "pet_gender" : self.petGender, "pet_breed": self.petBreed, "pet_size" : self.petSize, "pet_neut" : self.petNeutering, "pet_name" : self.petName,"CatOrDog" : self.DogorCat, "pet_age":self.petAge, "profileImageUrl":imageProfileUrl.absoluteString] as [String : Any]
+        let userData = ["email": self.email , "uid": uid, "nickname":self.nickname, "gender": self.gender,"age":self.age, "location":self.location,"pet_gender" : self.petGender, "pet_breed": self.petBreed, "pet_size" : self.petSize, "pet_neut" : self.petNeutering, "pet_name" : self.petName,"CatOrDog" : self.DogorCat, "pet_age":self.petAge, "profileImageUrl":imageProfileUrl.absoluteString] as [String : Any]
         
         FirebaseManager.shared.firestore.collection("users")
             .document(uid).setData(userData) { err in

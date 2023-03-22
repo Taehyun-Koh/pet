@@ -16,6 +16,10 @@
 		E23F30A729C31209005B122E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E23F30A629C31209005B122E /* FirebaseFirestoreSwift */; };
 		E23F30A929C31209005B122E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E23F30A829C31209005B122E /* FirebaseStorage */; };
 		E23F30AB29C34BEC005B122E /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F30AA29C34BEC005B122E /* FirebaseConstants.swift */; };
+		E23F30B029C354BF005B122E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F30AF29C354BF005B122E /* ContentView.swift */; };
+		E23F30B229C354E9005B122E /* TabBarAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F30B129C354E9005B122E /* TabBarAccessor.swift */; };
+		E23F30B429C35504005B122E /* TabBarButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F30B329C35504005B122E /* TabBarButtonStyle.swift */; };
+		E23F30B629C37B45005B122E /* MyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F30B529C37B45005B122E /* MyMapView.swift */; };
 		E259408029BDF1B300EE5FE6 /* PetMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E259407F29BDF1B300EE5FE6 /* PetMateApp.swift */; };
 		E259408429BDF1B400EE5FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E259408329BDF1B400EE5FE6 /* Assets.xcassets */; };
 		E259408729BDF1B400EE5FE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E259408629BDF1B400EE5FE6 /* Preview Assets.xcassets */; };
@@ -38,6 +42,10 @@
 		E23F309D29C310DB005B122E /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		E23F309F29C310F5005B122E /* RecentMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentMessage.swift; sourceTree = "<group>"; };
 		E23F30AA29C34BEC005B122E /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
+		E23F30AF29C354BF005B122E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E23F30B129C354E9005B122E /* TabBarAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarAccessor.swift; sourceTree = "<group>"; };
+		E23F30B329C35504005B122E /* TabBarButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButtonStyle.swift; sourceTree = "<group>"; };
+		E23F30B529C37B45005B122E /* MyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMapView.swift; sourceTree = "<group>"; };
 		E259407C29BDF1B300EE5FE6 /* PetMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E259407F29BDF1B300EE5FE6 /* PetMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMateApp.swift; sourceTree = "<group>"; };
 		E259408329BDF1B400EE5FE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +88,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E23F30AE29C3549D005B122E /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				E23F30AF29C354BF005B122E /* ContentView.swift */,
+				E23F30B129C354E9005B122E /* TabBarAccessor.swift */,
+				E23F30B329C35504005B122E /* TabBarButtonStyle.swift */,
+			);
+			path = TabView;
+			sourceTree = "<group>";
+		};
+		E23F30B729C37E35005B122E /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				E23F30B529C37B45005B122E /* MyMapView.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
 		E259407329BDF1B300EE5FE6 = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +125,9 @@
 		E259407E29BDF1B300EE5FE6 /* PetMate */ = {
 			isa = PBXGroup;
 			children = (
+				E23F30B729C37E35005B122E /* MapView */,
 				E23A88BD29BDFDC200EA26A3 /* GoogleService-Info.plist */,
+				E23F30AE29C3549D005B122E /* TabView */,
 				E23A88BA29BDF5F900EA26A3 /* Model */,
 				E2F75C7829BDF3820058AB51 /* Forgot Password */,
 				E2F75C7529BDF37A0058AB51 /* MainMessages */,
@@ -267,7 +295,10 @@
 			files = (
 				E23F30A029C310F5005B122E /* RecentMessage.swift in Sources */,
 				E2F75C7F29BDF3820058AB51 /* ForgotPasswordViewModel.swift in Sources */,
+				E23F30B229C354E9005B122E /* TabBarAccessor.swift in Sources */,
+				E23F30B029C354BF005B122E /* ContentView.swift in Sources */,
 				E2F75C7329BDF33F0058AB51 /* FirebaseManager.swift in Sources */,
+				E23F30B429C35504005B122E /* TabBarButtonStyle.swift in Sources */,
 				E23F309E29C310DB005B122E /* ChatMessage.swift in Sources */,
 				E2F75C6C29BDF2F00058AB51 /* LoginView.swift in Sources */,
 				E2F75C7729BDF37A0058AB51 /* MainMessageView.swift in Sources */,
@@ -277,6 +308,7 @@
 				E2F75C7029BDF3190058AB51 /* RegisterView.swift in Sources */,
 				E2F75C6E29BDF3140058AB51 /* ImagePicker.swift in Sources */,
 				E2F75C8029BDF3820058AB51 /* ForgotPasswordService.swift in Sources */,
+				E23F30B629C37B45005B122E /* MyMapView.swift in Sources */,
 				E2F75C8129BDF3820058AB51 /* ForgotPasswordView.swift in Sources */,
 				E259408029BDF1B300EE5FE6 /* PetMateApp.swift in Sources */,
 				E2B57D7E29BF4A5500BD1FF1 /* LocalListView.swift in Sources */,
@@ -410,6 +442,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PetMate/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -438,6 +473,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PetMate/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

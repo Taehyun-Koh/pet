@@ -10,6 +10,7 @@ import FirebaseFirestoreSwift
 
 struct ChatUser: Codable, Identifiable {
     @DocumentID var id: String?
-    let uid, nickname, profileImageUrl, gender, age: String
+    let uid, nickname, profileImageUrl, gender, age, location, pet_age,pet_breed,pet_name,pet_size,pet_gender: String
+    let pet_neut : Bool
 }
 

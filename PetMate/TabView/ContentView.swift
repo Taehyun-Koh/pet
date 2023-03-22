@@ -11,12 +11,46 @@ import SwiftUI
 enum BottomTab {
     case home, list, search, myPage
 }
-
+class ContentViewModel : ObservableObject{
+    @Published var errorMessage = ""
+    @Published var chatUser: ChatUser?
+    @Published var isUserCurrentlyLoggedOut = false
+    
+    init() {
+        
+        DispatchQueue.main.async {
+            self.isUserCurrentlyLoggedOut = FirebaseManager.shared.auth.currentUser?.uid == nil
+        }
+        
+        fetchCurrentUser()
+    }
+    func fetchCurrentUser() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
+            self.errorMessage = "Could not find firebase uid"
+            return
+        }
+        
+        FirebaseManager.shared.firestore.collection("users").document(uid).getDocument { snapshot, error in
+            if let error = error {
+                self.errorMessage = "Failed to fetch current user: \(error)"
+                print("Failed to fetch current user:", error)
+                return
+            }
+            
+            self.chatUser = try? snapshot?.data(as: ChatUser.self)
+            FirebaseManager.shared.currentUser = self.chatUser
+        }
+    }
+    
+}
 struct ContentView: View {
     
     @State var chatUser: ChatUser?
     @State var shouldNavigateToChatLogView = true
+    @State var shouldShowLogOutOptions = false
     private var chatLogViewModel = ChatLogViewModel(chatUser: nil)
+    @ObservedObject private var vm = ContentViewModel()
+
     @State var currentTab : BottomTab = .home
     
     init(){
@@ -28,6 +62,11 @@ struct ContentView: View {
         ZStack(alignment: .bottom){
             tabView.zIndex(0)
 //            bottomTabs.zIndex(1)
+        }
+        .fullScreenCover(isPresented: $vm.isUserCurrentlyLoggedOut, onDismiss: nil) {
+            LoginView(didCompleteLoginProcess: {
+                self.vm.isUserCurrentlyLoggedOut = false
+            })
         }
     }
 }
@@ -63,8 +102,7 @@ extension ContentView {
                     Text("사료")
                 }
             
-            Color.blue.edgesIgnoringSafeArea(.all)
-                .overlay(Text("마이").font(.largeTitle))
+            ProfileView()
                 .tag(BottomTab.myPage)
                 .tabItem {
                     Image(systemName: "person")

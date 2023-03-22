@@ -23,6 +23,8 @@
 		E259408029BDF1B300EE5FE6 /* PetMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E259407F29BDF1B300EE5FE6 /* PetMateApp.swift */; };
 		E259408429BDF1B400EE5FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E259408329BDF1B400EE5FE6 /* Assets.xcassets */; };
 		E259408729BDF1B400EE5FE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E259408629BDF1B400EE5FE6 /* Preview Assets.xcassets */; };
+		E269513829CB5D9E0069D7FD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269513729CB5D9E0069D7FD /* ProfileView.swift */; };
+		E269513C29CB6A580069D7FD /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269513B29CB6A580069D7FD /* ColorManager.swift */; };
 		E2B57D7E29BF4A5500BD1FF1 /* LocalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B57D7D29BF4A5500BD1FF1 /* LocalListView.swift */; };
 		E2B57D8129BF5A4F00BD1FF1 /* ChatLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B57D8029BF5A4F00BD1FF1 /* ChatLogView.swift */; };
 		E2F75C6C29BDF2F00058AB51 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F75C6B29BDF2F00058AB51 /* LoginView.swift */; };
@@ -50,6 +52,8 @@
 		E259407F29BDF1B300EE5FE6 /* PetMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMateApp.swift; sourceTree = "<group>"; };
 		E259408329BDF1B400EE5FE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E259408629BDF1B400EE5FE6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E269513729CB5D9E0069D7FD /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = ../../newTemp/PetMate/ProfileView.swift; sourceTree = "<group>"; };
+		E269513B29CB6A580069D7FD /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		E2B57D7D29BF4A5500BD1FF1 /* LocalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalListView.swift; sourceTree = "<group>"; };
 		E2B57D8029BF5A4F00BD1FF1 /* ChatLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogView.swift; sourceTree = "<group>"; };
 		E2F75C6B29BDF2F00058AB51 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 				E2F75C7529BDF37A0058AB51 /* MainMessages */,
 				E2F75C7129BDF33F0058AB51 /* Utils */,
 				E259407F29BDF1B300EE5FE6 /* PetMateApp.swift */,
+				E269513729CB5D9E0069D7FD /* ProfileView.swift */,
 				E2F75C6B29BDF2F00058AB51 /* LoginView.swift */,
 				E2F75C6F29BDF3190058AB51 /* RegisterView.swift */,
 				E2F75C6D29BDF3140058AB51 /* ImagePicker.swift */,
@@ -163,6 +168,7 @@
 			children = (
 				E2F75C7229BDF33F0058AB51 /* FirebaseManager.swift */,
 				E23F30AA29C34BEC005B122E /* FirebaseConstants.swift */,
+				E269513B29CB6A580069D7FD /* ColorManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E269513C29CB6A580069D7FD /* ColorManager.swift in Sources */,
 				E23F30A029C310F5005B122E /* RecentMessage.swift in Sources */,
 				E2F75C7F29BDF3820058AB51 /* ForgotPasswordViewModel.swift in Sources */,
 				E23F30B229C354E9005B122E /* TabBarAccessor.swift in Sources */,
@@ -305,6 +312,7 @@
 				E23A88BC29BDF5F900EA26A3 /* ChatUser.swift in Sources */,
 				E2B57D8129BF5A4F00BD1FF1 /* ChatLogView.swift in Sources */,
 				E23F30AB29C34BEC005B122E /* FirebaseConstants.swift in Sources */,
+				E269513829CB5D9E0069D7FD /* ProfileView.swift in Sources */,
 				E2F75C7029BDF3190058AB51 /* RegisterView.swift in Sources */,
 				E2F75C6E29BDF3140058AB51 /* ImagePicker.swift in Sources */,
 				E2F75C8029BDF3820058AB51 /* ForgotPasswordService.swift in Sources */,

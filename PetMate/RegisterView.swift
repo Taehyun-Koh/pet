@@ -166,6 +166,7 @@ struct PetInfoView: View {
     @State private var petGender = ""
     @State private var petSize = "puppy"
     @State private var petNeutering = true
+    @State private var introduce = ""
     @State var navigated = false
     @State var isloading = false
     
@@ -290,6 +291,10 @@ struct PetInfoView: View {
                             Text("대형").tag("대형")
                         }.pickerStyle(SegmentedPickerStyle())
                     }
+                    InputTextFieldView(text: $introduce,
+                                       placeholder: "소개말을 적어주세요.",
+                                       keyboardType: .namePhonePad,
+                                       systemImage: nil)
                     Button {
                         
                         createNewAccount()

@@ -25,6 +25,11 @@
 		E259408729BDF1B400EE5FE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E259408629BDF1B400EE5FE6 /* Preview Assets.xcassets */; };
 		E269513829CB5D9E0069D7FD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269513729CB5D9E0069D7FD /* ProfileView.swift */; };
 		E269513C29CB6A580069D7FD /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269513B29CB6A580069D7FD /* ColorManager.swift */; };
+		E269516B29CC399D0069D7FD /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269516A29CC399D0069D7FD /* RecommendView.swift */; };
+		E269516D29CC93AC0069D7FD /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269516C29CC93AC0069D7FD /* Items.swift */; };
+		E269524629CDA33F0069D7FD /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = E269524529CDA33F0069D7FD /* WrappingHStack */; };
+		E269524829CEC1A60069D7FD /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269524729CEC1A60069D7FD /* FeedView.swift */; };
+		E269524A29D1B7610069D7FD /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269524929D1B7600069D7FD /* ProductView.swift */; };
 		E2B57D7E29BF4A5500BD1FF1 /* LocalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B57D7D29BF4A5500BD1FF1 /* LocalListView.swift */; };
 		E2B57D8129BF5A4F00BD1FF1 /* ChatLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B57D8029BF5A4F00BD1FF1 /* ChatLogView.swift */; };
 		E2F75C6C29BDF2F00058AB51 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F75C6B29BDF2F00058AB51 /* LoginView.swift */; };
@@ -54,6 +59,10 @@
 		E259408629BDF1B400EE5FE6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E269513729CB5D9E0069D7FD /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = ../../newTemp/PetMate/ProfileView.swift; sourceTree = "<group>"; };
 		E269513B29CB6A580069D7FD /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		E269516A29CC399D0069D7FD /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
+		E269516C29CC93AC0069D7FD /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		E269524729CEC1A60069D7FD /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		E269524929D1B7600069D7FD /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		E2B57D7D29BF4A5500BD1FF1 /* LocalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalListView.swift; sourceTree = "<group>"; };
 		E2B57D8029BF5A4F00BD1FF1 /* ChatLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogView.swift; sourceTree = "<group>"; };
 		E2F75C6B29BDF2F00058AB51 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -75,6 +84,7 @@
 				E23F30A329C31209005B122E /* FirebaseAuth in Frameworks */,
 				E23F30A529C31209005B122E /* FirebaseFirestore in Frameworks */,
 				E23F30A929C31209005B122E /* FirebaseStorage in Frameworks */,
+				E269524629CDA33F0069D7FD /* WrappingHStack in Frameworks */,
 				E23F30A729C31209005B122E /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +98,7 @@
 				E23A88BB29BDF5F900EA26A3 /* ChatUser.swift */,
 				E23F309D29C310DB005B122E /* ChatMessage.swift */,
 				E23F309F29C310F5005B122E /* RecentMessage.swift */,
+				E269516C29CC93AC0069D7FD /* Items.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,11 +149,14 @@
 				E2F75C7129BDF33F0058AB51 /* Utils */,
 				E259407F29BDF1B300EE5FE6 /* PetMateApp.swift */,
 				E269513729CB5D9E0069D7FD /* ProfileView.swift */,
+				E269516A29CC399D0069D7FD /* RecommendView.swift */,
 				E2F75C6B29BDF2F00058AB51 /* LoginView.swift */,
 				E2F75C6F29BDF3190058AB51 /* RegisterView.swift */,
 				E2F75C6D29BDF3140058AB51 /* ImagePicker.swift */,
 				E259408329BDF1B400EE5FE6 /* Assets.xcassets */,
 				E259408529BDF1B400EE5FE6 /* Preview Content */,
+				E269524729CEC1A60069D7FD /* FeedView.swift */,
+				E269524929D1B7600069D7FD /* ProductView.swift */,
 			);
 			path = PetMate;
 			sourceTree = "<group>";
@@ -239,6 +253,7 @@
 				E23F30A429C31209005B122E /* FirebaseFirestore */,
 				E23F30A629C31209005B122E /* FirebaseFirestoreSwift */,
 				E23F30A829C31209005B122E /* FirebaseStorage */,
+				E269524529CDA33F0069D7FD /* WrappingHStack */,
 			);
 			productName = PetMate;
 			productReference = E259407C29BDF1B300EE5FE6 /* PetMate.app */;
@@ -271,6 +286,7 @@
 			packageReferences = (
 				E2F75C8B29BDF4AB0058AB51 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				E23F30A129C31209005B122E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E269524429CDA33F0069D7FD /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 			);
 			productRefGroup = E259407D29BDF1B300EE5FE6 /* Products */;
 			projectDirPath = "";
@@ -299,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E269524A29D1B7610069D7FD /* ProductView.swift in Sources */,
 				E269513C29CB6A580069D7FD /* ColorManager.swift in Sources */,
 				E23F30A029C310F5005B122E /* RecentMessage.swift in Sources */,
 				E2F75C7F29BDF3820058AB51 /* ForgotPasswordViewModel.swift in Sources */,
@@ -312,12 +329,15 @@
 				E23A88BC29BDF5F900EA26A3 /* ChatUser.swift in Sources */,
 				E2B57D8129BF5A4F00BD1FF1 /* ChatLogView.swift in Sources */,
 				E23F30AB29C34BEC005B122E /* FirebaseConstants.swift in Sources */,
+				E269516D29CC93AC0069D7FD /* Items.swift in Sources */,
 				E269513829CB5D9E0069D7FD /* ProfileView.swift in Sources */,
 				E2F75C7029BDF3190058AB51 /* RegisterView.swift in Sources */,
+				E269524829CEC1A60069D7FD /* FeedView.swift in Sources */,
 				E2F75C6E29BDF3140058AB51 /* ImagePicker.swift in Sources */,
 				E2F75C8029BDF3820058AB51 /* ForgotPasswordService.swift in Sources */,
 				E23F30B629C37B45005B122E /* MyMapView.swift in Sources */,
 				E2F75C8129BDF3820058AB51 /* ForgotPasswordView.swift in Sources */,
+				E269516B29CC399D0069D7FD /* RecommendView.swift in Sources */,
 				E259408029BDF1B300EE5FE6 /* PetMateApp.swift in Sources */,
 				E2B57D7E29BF4A5500BD1FF1 /* LocalListView.swift in Sources */,
 			);
@@ -534,6 +554,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		E269524429CDA33F0069D7FD /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		E2F75C8B29BDF4AB0058AB51 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
@@ -564,6 +592,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E23F30A129C31209005B122E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		E269524529CDA33F0069D7FD /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E269524429CDA33F0069D7FD /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
 		};
 		E2F75C8C29BDF4AB0058AB51 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

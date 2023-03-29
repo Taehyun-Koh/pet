@@ -119,12 +119,28 @@ struct LocalListView: View {
                                              .lineLimit(1)
                                              .padding(.leading)
                                         Text("·")
-                                        Text(user.pet_age)
-                                            .font(.caption)
-                                            .lineLimit(1)
-                                        Spacer()
+                                        if user.pet_age == "puppy"{
+                                            Text("퍼피")
+                                                .font(.caption)
+                                                .lineLimit(1)
+                                            Spacer()
+                                        }
+                                        else if user.pet_age == "adult"{
+                                            Text("어덜트")
+                                                .font(.caption)
+                                                .lineLimit(1)
+                                            Spacer()
+                                        }
+                                        if user.pet_age == "senior"{
+                                            Text("시니어")
+                                                .font(.caption)
+                                                .lineLimit(1)
+                                            Spacer()
+                                        }
+
                                     }
                                     HStack{
+                                        Image(systemName: "note.text").foregroundColor(.gray)
                                         Text(user.introduce)
                                             .foregroundColor(.black)
                                             .font(.caption)

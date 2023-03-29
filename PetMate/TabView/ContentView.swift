@@ -9,7 +9,7 @@ import SwiftUI
 
 // 바텀 탭 페이지
 enum BottomTab {
-    case home, list, search, myPage
+    case home, list, search, myPage, favorite
 }
 class ContentViewModel : ObservableObject{
     @Published var errorMessage = ""
@@ -93,15 +93,12 @@ extension ContentView {
                     Text("채팅")
                 }
 
-            
-            Color.pink.edgesIgnoringSafeArea(.all)
-                .overlay(Text("사료").font(.largeTitle))
+            RecommendView()
                 .tag(BottomTab.search)
                 .tabItem {
                     Image(systemName: "pawprint")
                     Text("사료")
                 }
-            
             ProfileView()
                 .tag(BottomTab.myPage)
                 .tabItem {

@@ -135,7 +135,7 @@ struct MainMessageView: View {
                     Button {
                         let uid = FirebaseManager.shared.auth.currentUser?.uid == recentMessage.fromId ? recentMessage.toId : recentMessage.fromId
                         
-                        self.chatUser = .init(id: uid, uid: uid, nickname: recentMessage.nickname, profileImageUrl: recentMessage.profileImageUrl, gender: "" , age : "", location: "",pet_age:"", pet_breed: "", pet_name: "",pet_size: "",pet_gender: "", introduce:"",pet_neut: false)
+                        self.chatUser = .init(id: uid, uid: uid, nickname: recentMessage.nickname, profileImageUrl: recentMessage.profileImageUrl, gender: "" , age : "", location: "",pet_age:"", pet_breed: "", pet_name: "",pet_size: "",pet_gender: "", introduce:"",pet_neut: false,keyword: ["" : 0])
                         
                         self.chatLogViewModel.chatUser = self.chatUser
                         self.chatLogViewModel.fetchMessages()

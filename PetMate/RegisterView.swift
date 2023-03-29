@@ -278,9 +278,9 @@ struct PetInfoView: View {
                         Text("펫 나이").bold().padding(.trailing, 15.0)
                         Spacer()
                         Picker(selection: $petAge, label: Text("")){
-                            Text("퍼피(1세 미만)").tag("퍼피")
-                            Text("어덜트(1세~7세)").tag("어덜트")
-                            Text("시니어(7세 이상").tag("시니어")
+                            Text("퍼피(1세 미만)").tag("puppy")
+                            Text("어덜트(1세~7세)").tag("adult")
+                            Text("시니어(7세 이상)").tag("senior")
                         }
                     }
                     HStack{

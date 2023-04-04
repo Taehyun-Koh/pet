@@ -112,6 +112,7 @@ struct LoginView: View {
             
             self.didCompleteLoginProcess()
         }
+        
     }
     
     @State var loginStatusMessage = ""

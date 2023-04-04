@@ -12,6 +12,7 @@ struct PetMateApp: App {
     var body: some Scene {
         WindowGroup {
 //            MainMessageView()
+//            ProfileView()
             ContentView()
 //            HomeView()
 //            MapView()

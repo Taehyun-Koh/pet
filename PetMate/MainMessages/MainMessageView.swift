@@ -113,7 +113,7 @@ struct MainMessageView: View {
             VStack {
                 HStack{
                     Text("채팅").bold()
-                        .font(.system(size: 25))
+                        .font(.system(size: 30))
                         .padding()
                     Spacer()
                 }

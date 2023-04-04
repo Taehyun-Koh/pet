@@ -92,9 +92,15 @@ extension ContentView {
                     Image(systemName: "message")
                     Text("채팅")
                 }
-
-            RecommendView()
+            MainProductView()
                 .tag(BottomTab.search)
+                .tabItem{
+                    Image(systemName: "basket")
+                    Text("용품")
+                }
+            
+            RecommendView()
+                .tag(BottomTab.favorite)
                 .tabItem {
                     Image(systemName: "pawprint")
                     Text("사료")

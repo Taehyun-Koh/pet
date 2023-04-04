@@ -81,7 +81,7 @@ struct LocalListView: View {
                                 WebImage(url: URL(string: user.profileImageUrl))
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(width: 100, height: 100)
+                                    .frame(width: 120, height: 120)
                                     .clipped()
                                     .cornerRadius(10)
                                 VStack() {
@@ -89,7 +89,7 @@ struct LocalListView: View {
                                         Text(user.pet_name)
                                             .lineLimit(1)
                                             .bold()
-                                            .padding(.leading)
+                                            .padding(.leading,3)
                                         if user.pet_gender == "male"{
                                             Image("male")
                                                 .resizable()
@@ -104,10 +104,7 @@ struct LocalListView: View {
                                             
                                         }
                                         Text("|").font(.caption)
-                                        Text(user.age)
-                                            .font(.caption)
-                                            .lineLimit(1)
-                                        Text(user.gender)
+                                        (Text(user.age) + Text(" ") + Text(user.gender))
                                             .font(.caption)
                                             .lineLimit(1)
                                         Spacer()
@@ -117,7 +114,7 @@ struct LocalListView: View {
                                         Text(user.pet_breed)
                                              .font(.caption)
                                              .lineLimit(1)
-                                             .padding(.leading)
+                                             .padding(.leading,3)
                                         Text("·")
                                         if user.pet_age == "puppy"{
                                             Text("퍼피")
@@ -140,22 +137,20 @@ struct LocalListView: View {
 
                                     }
                                     HStack{
-                                        Image(systemName: "note.text").foregroundColor(.gray)
-                                        Text(user.introduce)
-                                            .foregroundColor(.black)
-                                            .font(.caption)
-                                            .padding(3)
-                                            .background(ColorManager.BackgroundColor)
-                                            .padding(.top,1)
-                                            .padding(.leading)
+                                        HStack{
+                                            Image(systemName: "text.bubble").foregroundColor(.gray)
+                                            Text(user.introduce)
+                                                .foregroundColor(.black)
+                                                .font(.system(size: 13))
+                                                .padding(.bottom,1)
+                                        }
+                                        .padding(2)
+                                        .background(ColorManager.BackgroundColor)
+
+
                                         Spacer()
                                     }
 
-                                    HStack {
-                                        Spacer()
-               
-
-                                    }
                                 }
                                 NavigationLink {
                                     ChatLogView(vm: ChatLogViewModel(chatUser: user))
@@ -187,7 +182,7 @@ struct LocalListView: View {
                             VStack {
                                 HStack{
                                     Text("홈").bold()
-                                        .font(.system(size: 25))
+                                        .font(.system(size: 30))
                                     Spacer()
                                     Image(systemName: "mappin.and.ellipse")
                                         .resizable()

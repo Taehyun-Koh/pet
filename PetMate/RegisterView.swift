@@ -371,7 +371,7 @@ struct PetInfoView: View {
     private func storeUserInfo(imageProfileUrl: URL){
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         
-        let userData = ["email": self.email , "uid": uid, "nickname":self.nickname, "gender": self.gender,"age":self.age, "location":self.location,"pet_gender" : self.petGender, "pet_breed": self.petBreed, "pet_size" : self.petSize, "pet_neut" : self.petNeutering, "pet_name" : self.petName,"CatOrDog" : self.DogorCat, "pet_age":self.petAge, "profileImageUrl":imageProfileUrl.absoluteString] as [String : Any]
+        let userData = ["email": self.email , "uid": uid, "nickname":self.nickname, "gender": self.gender,"age":self.age, "location":self.location,"pet_gender" : self.petGender, "pet_breed": self.petBreed, "pet_size" : self.petSize, "pet_neut" : self.petNeutering, "pet_name" : self.petName,"CatOrDog" : self.DogorCat, "pet_age":self.petAge, "profileImageUrl":imageProfileUrl.absoluteString, "introduce" : self.introduce] as [String : Any]
         
         FirebaseManager.shared.firestore.collection("users")
             .document(uid).setData(userData) { err in

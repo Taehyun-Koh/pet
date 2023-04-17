@@ -76,104 +76,115 @@ struct LocalListView: View {
                 
                 ForEach(vm.users) { user in
                     if user.location == self.vm.chatUser?.location{
-                        HStack {
+                        if self.vm.chatUser?.id != user.id{
                             HStack {
-                                WebImage(url: URL(string: user.profileImageUrl))
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 120, height: 120)
-                                    .clipped()
-                                    .cornerRadius(10)
-                                VStack() {
-                                    HStack {
-                                        Text(user.pet_name)
-                                            .lineLimit(1)
-                                            .bold()
-                                            .padding(.leading,3)
-                                        if user.pet_gender == "male"{
-                                            Image("male")
-                                                .resizable()
-                                                .frame(width: 15,height: 15)
-                                                .scaledToFit()
-                                        }
-                                        else if user.pet_gender == "female"{
-                                            Image("female")
-                                                .resizable()
-                                                .frame(width: 15,height: 15)
-                                                .scaledToFit()
-                                            
-                                        }
-                                        Text("|").font(.caption)
-                                        (Text(user.age) + Text(" ") + Text(user.gender))
-                                            .font(.caption)
-                                            .lineLimit(1)
-                                        Spacer()
-     
-                                    }
-                                    HStack{
-                                        Text(user.pet_breed)
-                                             .font(.caption)
-                                             .lineLimit(1)
-                                             .padding(.leading,3)
-                                        Text("·")
-                                        if user.pet_age == "puppy"{
-                                            Text("퍼피")
+                                HStack {
+                                    WebImage(url: URL(string: user.profileImageUrl))
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 120, height: 120)
+                                        .clipped()
+                                        .cornerRadius(10)
+                                    VStack() {
+                                        HStack {
+                                            Text(user.pet_name)
+                                                .lineLimit(1)
+                                                .bold()
+                                                .padding(.leading,3)
+                                            if user.pet_gender == "male"{
+                                                Image("male")
+                                                    .resizable()
+                                                    .frame(width: 15,height: 15)
+                                                    .scaledToFit()
+                                            }
+                                            else if user.pet_gender == "female"{
+                                                Image("female")
+                                                    .resizable()
+                                                    .frame(width: 15,height: 15)
+                                                    .scaledToFit()
+                                                
+                                            }
+                                            Text("|").font(.caption)
+                                            (Text(user.age) + Text(" ") + Text(user.gender))
                                                 .font(.caption)
                                                 .lineLimit(1)
                                             Spacer()
+         
                                         }
-                                        else if user.pet_age == "adult"{
-                                            Text("어덜트")
-                                                .font(.caption)
-                                                .lineLimit(1)
-                                            Spacer()
-                                        }
-                                        if user.pet_age == "senior"{
-                                            Text("시니어")
-                                                .font(.caption)
-                                                .lineLimit(1)
-                                            Spacer()
-                                        }
-
-                                    }
-                                    HStack{
                                         HStack{
-                                            Image(systemName: "text.bubble").foregroundColor(.gray)
-                                            Text(user.introduce)
-                                                .foregroundColor(.black)
-                                                .font(.system(size: 13))
-                                                .padding(.bottom,1)
+                                            Text(user.pet_breed)
+                                                 .font(.caption)
+                                                 .lineLimit(1)
+                                                 .padding(.leading,3)
+                                            Text("·")
+                                            if user.pet_age == "puppy"{
+                                                Text("퍼피")
+                                                    .font(.caption)
+                                                    .lineLimit(1)
+                                                Spacer()
+                                            }
+                                            else if user.pet_age == "adult"{
+                                                Text("어덜트")
+                                                    .font(.caption)
+                                                    .lineLimit(1)
+                                                Spacer()
+                                            }
+                                            if user.pet_age == "senior"{
+                                                Text("시니어")
+                                                    .font(.caption)
+                                                    .lineLimit(1)
+                                                Spacer()
+                                            }
+
                                         }
-                                        .padding(2)
-                                        .background(ColorManager.BackgroundColor)
+                                        HStack{
+                                            Text(user.location)
+                                                .foregroundColor(.black)
+                                                .font(.system(size: 12))
+                                            Spacer()
+                                        }.padding(.leading,2)
+                                            .padding(.top,1)
+                                        HStack{
+                                            HStack{
+                                                Image(systemName: "text.bubble").foregroundColor(.gray)
+                                                Text(user.introduce)
+                                                    .foregroundColor(.black)
+                                                    .font(.system(size: 13))
+                                                    .padding(.bottom,1)
+                                            }
+                                            .padding(2)
+                                            .background(ColorManager.BackgroundColor)
 
 
-                                        Spacer()
+                                            Spacer()
+                                        }
+
                                     }
+                                    NavigationLink {
+                                        ChatLogView(vm: ChatLogViewModel(chatUser: user))
+                                    } label: {
+                                        Image(systemName: "bubble.left.and.bubble.right").foregroundColor(.gray)
+        //                                Text("채팅")
+        //                                    .frame(width: 25, height: 25)
+        //                                    .background(Circle().fill(Color.gray))
+        //                                    .padding(.leading, 10)
+                                    }
+                                    
+                                    
+                                }
+                                
+                                .padding()
+                                .background(Rectangle().fill(Color.white))
+                                .cornerRadius(10)
+                            }.padding(.trailing)
+                            Divider()
+                        }
 
-                                }
-                                NavigationLink {
-                                    ChatLogView(vm: ChatLogViewModel(chatUser: user))
-                                } label: {
-                                    Image(systemName: "paperplane.fill").foregroundColor(.gray)
-    //                                Text("채팅")
-    //                                    .frame(width: 25, height: 25)
-    //                                    .background(Circle().fill(Color.gray))
-    //                                    .padding(.leading, 10)
-                                }
-                                
-                                
-                            }
-                            
-                            .padding()
-                            .background(Rectangle().fill(Color.white))
-                            .cornerRadius(10)
-                        }.padding(.trailing)
                     }
                     
 //                        presentationMode.wrappedValue.dismiss()
 //                        didSelectNewUser(user)
-                    Divider()
+                    
                 }
             }.navigationBarTitleDisplayMode(.inline)
                 .toolbar {

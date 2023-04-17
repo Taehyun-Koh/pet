@@ -181,6 +181,7 @@ class RecommendViewModel: ObservableObject{
 
 struct RecommendView: View {
     
+    static let BackgroundColor = Color("TextBackground")
     @ObservedObject private var vm = RecommendViewModel()
     @State private var random: Bool = true
     
@@ -232,8 +233,8 @@ struct RecommendView: View {
                                     .padding(.all, 5)
                                     .font(.system(size: 16))
                                     .bold()
-                                    .background(Color.gray)
-                                    .foregroundColor(Color.white)
+//                                    .background(Color.gray)
+                                    .foregroundColor(Color.gray)
                                     .cornerRadius(10)
                                     .padding(.leading, 15)
                                     .padding(.bottom,5)
@@ -243,8 +244,8 @@ struct RecommendView: View {
                                     .padding(.all, 5)
                                     .font(.system(size: 16))
                                     .bold()
-                                    .background(Color.gray)
-                                    .foregroundColor(Color.white)
+//                                    .background(Color.gray)
+                                    .foregroundColor(Color.gray)
                                     .cornerRadius(10)
                                     .padding(.leading, 15)
                                     .padding(.bottom,5)
@@ -254,8 +255,8 @@ struct RecommendView: View {
                                     .padding(.all, 5)
                                     .font(.system(size: 16))
                                     .bold()
-                                    .background(Color.gray)
-                                    .foregroundColor(Color.white)
+//                                    .background(Color.gray)
+                                    .foregroundColor(Color.gray)
                                     .cornerRadius(10)
                                     .padding(.leading, 15)
                                     .padding(.bottom,5)
@@ -305,7 +306,7 @@ struct RecommendView: View {
                                     }
                                 }
                                 .padding(.all, 5)
-                                .font(.system(size: 13))
+                                .font(.system(size: 11))
                                 .bold()
                                 .background(Color.green)
                                 .foregroundColor(Color.white)
@@ -326,7 +327,7 @@ struct RecommendView: View {
                                 }
                             }
                         }
-                    }
+                    }.padding(.bottom, 5)
 
                     ScrollView{
                         LazyVGrid(
@@ -575,17 +576,19 @@ struct RecommendView: View {
                     .padding(.all, 5)
                     .font(.system(size: 13))
                     .bold()
-                    .background(Color.green)
-                    .foregroundColor(Color.white)
+//                    .background(Color.green)
+                    .foregroundColor(Color.green)
+                    
                     .cornerRadius(10)
+                    .border(Color.green)
             }
             else{
                 Text(text)
                     .padding(.all, 5)
                     .font(.system(size: 13))
                     .bold()
-                    .background(Color.gray)
-                    .foregroundColor(Color.white)
+//                    .background(Color.gray)
+                    .foregroundColor(Color.gray)
                     .cornerRadius(10)
             }
         }
@@ -633,17 +636,18 @@ struct RecommendView: View {
                     .padding(.all, 5)
                     .font(.system(size: 13))
                     .bold()
-                    .background(Color.green)
-                    .foregroundColor(Color.white)
+//                    .background(Color.green)
+                    .foregroundColor(Color.green)
                     .cornerRadius(10)
+                    .border(Color.green)
             }
             else{
                 Text(text)
                     .padding(.all, 5)
                     .font(.system(size: 13))
                     .bold()
-                    .background(Color.gray)
-                    .foregroundColor(Color.white)
+//                    .background(Color.gray)
+                    .foregroundColor(Color.gray)
                     .cornerRadius(10)
             }
         }

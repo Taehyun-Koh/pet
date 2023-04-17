@@ -164,7 +164,7 @@ struct PetInfoView: View {
     @State private var petBreed = ""
     @State private var petAge = ""
     @State private var petGender = ""
-    @State private var petSize = "puppy"
+    @State private var petSize = "소형"
     @State private var petNeutering = true
     @State private var introduce = ""
     @State var navigated = false

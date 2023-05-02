@@ -1,4 +1,5 @@
-# pet
+## 반려동물용품 추천 및 케어메이트 매칭 앱
+![스크린샷 2023-05-02 12 18 39](https://user-images.githubusercontent.com/94899919/235572562-9c315eba-6f48-4ac8-955f-5c76c6e216f1.png)
 
 
 
